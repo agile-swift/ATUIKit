@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AE1F2EF1F663A38007D1C72 /* ATUIKit.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AE1F2EE1F663A38007D1C72 /* ATUIKit.podspec.json */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AE1F2EE1F663A38007D1C72 /* ATUIKit.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ATUIKit.podspec.json; path = ../ATUIKit.podspec.json; sourceTree = "<group>"; };
 		0F3E506AF20B2902F4B41B5B /* Pods-ATUIKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATUIKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATUIKit_Example/Pods-ATUIKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ATUIKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATUIKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,11 +41,10 @@
 		607FACE51AFB9204008FA782 /* ATUIKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATUIKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		69A71ED5FE15D0930E41593E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		69A71ED5FE15D0930E41593E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7F950AEDA2C16B1E54D0DD7D /* Pods-ATUIKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATUIKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATUIKit_Tests/Pods-ATUIKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		839679A7D87F0FBEEE093C48 /* ATUIKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ATUIKit.podspec; path = ../ATUIKit.podspec; sourceTree = "<group>"; };
 		8A610408C1E95C8B17900238 /* Pods_ATUIKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATUIKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DDEE41236F3384539C7B35A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8DDEE41236F3384539C7B35A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C1EC34A221EE807F3F052EFD /* Pods-ATUIKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATUIKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATUIKit_Tests/Pods-ATUIKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3CFDD18C07B4E145533248E /* Pods_ATUIKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATUIKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8480A10CB359713F5F70ED8 /* Pods-ATUIKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATUIKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATUIKit_Example/Pods-ATUIKit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,7 +133,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				839679A7D87F0FBEEE093C48 /* ATUIKit.podspec */,
+				0AE1F2EE1F663A38007D1C72 /* ATUIKit.podspec.json */,
 				8DDEE41236F3384539C7B35A /* README.md */,
 				69A71ED5FE15D0930E41593E /* LICENSE */,
 			);
@@ -250,6 +251,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				0AE1F2EF1F663A38007D1C72 /* ATUIKit.podspec.json in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
