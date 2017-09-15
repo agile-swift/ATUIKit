@@ -15,12 +15,7 @@ extension Int : CommonNumber {
         return CGFloat(self) * Pix
     }
     
-    /// 适配iPhone 6的值
-    public var fit6 : CGFloat {
-        return F6(Float(self))
-    }
-    
-    public var f : CGFloat {
-        return CGFloat(self)
+    public var toFloat: Float {
+        return Float(self)
     }
 }

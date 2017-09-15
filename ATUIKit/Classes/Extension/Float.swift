@@ -10,36 +10,22 @@ import UIKit
 
 extension Float : CommonNumber {
 
-    /// 适配iPhone 6的值
-    public var fit6 : CGFloat {
-        return F6(self)
-    }
-    
-    public var f : CGFloat {
-        return CGFloat(self)
+    public var toFloat: Float {
+        return self
     }
 }
 
 extension CGFloat : CommonNumber{
     
-    /// 适配iPhone 6的值
-    public var fit6 : CGFloat {
-        return F6(Float(self))
-    }
-    
-    public var f : CGFloat {
-        return self
+    public var toFloat: Float {
+        return Float(self)
     }
 }
 
 extension Double : CommonNumber{
     
-    /// 适配iPhone 6的值
-    public var fit6 : CGFloat {
-        return F6(Float(self))
+    public var toFloat: Float {
+        return Float(self)
     }
-    
-    public var f : CGFloat {
-        return CGFloat(self)
-    }
+
 }
