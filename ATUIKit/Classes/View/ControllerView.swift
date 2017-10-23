@@ -17,7 +17,6 @@ class ControllerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        self.backgroundColor = UIColor.random
     }
     
     required init?(coder aDecoder: NSCoder) {

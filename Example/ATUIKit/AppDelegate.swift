@@ -16,13 +16,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let vc1 = BViewController()
+        let vc2 = ViewController()
+        vc1.ATTabBarItem = TabBarItem.init(title: "测试", titleOnSelected: "测试", titleColor: UIColor.gray, titleColorOnSelected: UIColor.init(hex: 0x1296db), icon: UIImage.init(named: "home")!, iconOnSelected: UIImage.init(named: "home_sel")!)
+        vc2.ATTabBarItem = TabBarItem.init(title: "测试", titleOnSelected: "测试", titleColor: UIColor.gray, titleColorOnSelected: UIColor.init(hex: 0x1296db), icon: UIImage.init(named: "home")!, iconOnSelected: UIImage.init(named: "home_sel")!)
+
+        vc1.ATTabBarItem?.iconScale = 0.9.f
+        vc1.ATTabBarItem?.titleIconMargin = 2.f
+        vc2.ATTabBarItem?.iconScale = 0.9.f
+        vc2.ATTabBarItem?.titleIconMargin = 2.f
+        let tabbarVc = TabBarController.init(viewControllers: [vc1,vc2])
+
         window = UIWindow(frame: CGRect(origin: CGPoint.zero, size: ScreenSize))
         
-        let nav = NavigationController(rootViewController: ViewController())
+        let nav = NavigationController(rootViewController: tabbarVc)
         
         window?.rootViewController = nav
 
         window?.makeKeyAndVisible()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            tabbarVc.selectViewControllerAtIndex(index: 1)
+            tabbarVc.setBadge("20", atIndex: 1)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                //            tabbarVc.selectViewControllerAtIndex(index: 1)
+                tabbarVc.setBadge("200", atIndex: 1)
+                tabbarVc.setBadge("2", atIndex: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    //            tabbarVc.selectViewControllerAtIndex(index: 1)
+                    tabbarVc.setBadge(nil, atIndex: 1)
+                    tabbarVc.setBadge("", atIndex: 0)
+                }
+            }
+        }
         
         // Override point for customization after application launch.
         return true

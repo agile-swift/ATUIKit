@@ -73,7 +73,7 @@ extension UIView {
             return self.bounds.width
         }
         set {
-            self.bounds.size.width = newValue
+            self.frame.size.width = newValue
         }
     }
     
@@ -82,7 +82,7 @@ extension UIView {
             return self.bounds.height
         }
         set {
-            self.bounds.size.height = newValue
+            self.frame.size.height = newValue
         }
     }
     

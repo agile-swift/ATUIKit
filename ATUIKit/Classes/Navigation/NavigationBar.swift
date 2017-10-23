@@ -8,15 +8,13 @@
 
 import UIKit
 
-fileprivate let BottomLineTag = 8834
-
 fileprivate let DefaultFrame = CGRect(x: 0, y: 0, width: ScreenWidth, height: NavagationBarHeight)
 
 fileprivate var DefaultTitleFont = FitFont(ofSize: 17, bold: true)
 
 fileprivate var DefaultTitleColor = UIColor.black
 
-fileprivate var DefaultBottomLineColor : UIColor?
+fileprivate var DefaultBottomLineColor : UIColor? = UIColor.lightGray
 
 fileprivate let NavigationTitleWidth = ScreenWidth * 0.5
 
@@ -77,7 +75,6 @@ open class NavigationBar: UIView {
     /// 字体，设置标题之前有效
     open var titleFont : UIFont?
     
-    
     /// 自定义标题
     open var titleView : UIView?
     
@@ -103,7 +100,7 @@ open class NavigationBar: UIView {
     
     open var bottomBorderColor : UIColor? {
         get {
-            return viewWithTag(BottomLineTag)?.backgroundColor
+            return _bottomLine.backgroundColor
         }
         set {
             _bottomLine.backgroundColor = newValue
@@ -165,7 +162,6 @@ open class NavigationBar: UIView {
     private lazy var _bottomLine : UIView = {
         [unowned self] in
         let line = UIView()
-        line.tag = BottomLineTag
         self.addSubview(line)
         return line
     }()
@@ -234,10 +230,6 @@ open class NavigationBar: UIView {
         _titleLabel?.width = min(minValue * 2, titleNeedWidth)
         _titleLabel?.center = CGPoint.init(x: width * 0.5, y: centerY)
 
-        
-        guard let bottomLine = viewWithTag(BottomLineTag) else {
-            return
-        }
-        bottomLine.frame = CGRect(x: 0, y: height - 1.pix, width: width, height: 1.pix)
+        _bottomLine.frame = CGRect(x: 0, y: height - 1.pix, width: width, height: 1.pix)
     }
 }

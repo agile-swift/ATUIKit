@@ -14,6 +14,7 @@ class BViewController: ATUIKit.ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "测试B"
+        self.view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
     }
 
