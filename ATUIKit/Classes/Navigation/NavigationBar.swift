@@ -84,7 +84,7 @@ open class NavigationBar: UIView {
         set {
             let font = titleFont ?? DefaultTitleFont
             let color = titleColor ?? DefaultTitleColor
-            attributedTitle = NSAttributedString.init(string: newValue, attributes: [NSForegroundColorAttributeName : color,NSFontAttributeName : font])
+            attributedTitle = NSAttributedString.init(string: newValue, attributes: [NSAttributedStringKey.foregroundColor : color,NSAttributedStringKey.font : font])
         }
         get {
             return attributedTitle.string

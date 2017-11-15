@@ -52,8 +52,9 @@ open class BadgeView: UILabel {
     
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
         var needSize = super.sizeThatFits(size)
-        needSize.width += 6.f
-        needSize.height += 6.f
+        let maxValue = max(needSize.width, needSize.height)
+        needSize.width = maxValue + 6.fit6
+        needSize.height = maxValue + 6.fit6
         return needSize
     }
     

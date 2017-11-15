@@ -22,7 +22,7 @@ class ViewController: ATUIKit.ViewController {
         imageTest()
     }
 
-    func btnClick() {
+    @objc func btnClick() {
         print("按钮点击了")
     }
     

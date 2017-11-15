@@ -130,10 +130,10 @@ public extension UIViewController {
     
     public var ATTabBarItem : TabBarItem? {
         set {
-            objc_setAssociatedObject(self, tabbarItemKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, tabbarItemKey!, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get {
-            return objc_getAssociatedObject(self, tabbarItemKey) as? TabBarItem
+            return objc_getAssociatedObject(self, tabbarItemKey!) as? TabBarItem
         }
     }
 }
