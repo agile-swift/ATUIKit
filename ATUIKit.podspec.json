@@ -1,6 +1,6 @@
 {
   "name": "ATUIKit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "One of Agile Tools named ATUIKit",
   "description": "One of Agile Tools,used for supporting base UI service for develop",
   "homepage": "https://github.com/agile-swift/ATUIKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/agile-swift/ATUIKit.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "9.0"
