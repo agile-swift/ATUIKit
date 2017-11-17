@@ -26,22 +26,25 @@ class ControllerView: UIView {
     private let _navigationBar = NavigationBar()
     
     private func setupView() {
+        self.backgroundColor = UIColor.white
         addSubview(_navigationBar)
     }
     
     override func insertSubview(_ view: UIView, at index: Int) {
-        if index != 0 {
-            super.insertSubview(view, at: index)
-        } else {
-            super.insertSubview(view, at: 1)
-        }
+        super.insertSubview(view, at: index)
+        self.bringSubview(toFront: navigationBar)
     }
 
-    override func insertSubview(_ view: UIView, belowSubview siblingSubview: UIView) {
-        if siblingSubview != _navigationBar {
-            super.insertSubview(view, belowSubview: siblingSubview)
+    override func insertSubview(_ view: UIView, aboveSubview siblingSubview: UIView) {
+        super.insertSubview(view, aboveSubview: siblingSubview)
+        self.bringSubview(toFront: navigationBar)
+    }
+    
+    override func addSubview(_ view: UIView) {
+        if (view == navigationBar) {
+            super.addSubview(view)
         } else {
-            super.insertSubview(view, aboveSubview: siblingSubview)
+            super.insertSubview(view, belowSubview: navigationBar)
         }
     }
 }

@@ -25,12 +25,14 @@ open class TableViewCell: UITableViewCell {
         return cell as! TableViewCell
     }
     
-    open class func height(_ data:Any) -> CGFloat {
+    open class func height(_ data:Any?) -> CGFloat {
         return 44.fit6
     }
     
     required public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = UIColor.white
+        setupView()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -39,5 +41,9 @@ open class TableViewCell: UITableViewCell {
     
     open func bindData(_ data:Any?) {
         fatalError("bindData(_:) has not been implemented")
+    }
+    
+    open func setupView() {
+        fatalError("setupView() has not been implemented")
     }
 }

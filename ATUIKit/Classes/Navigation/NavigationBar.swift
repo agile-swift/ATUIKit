@@ -169,7 +169,7 @@ open class NavigationBar: UIView {
     private func setupView() {
         
         addSubview(contentView)
-        
+        contentView.backgroundColor = UIColor.white
         if _titleLabel == nil {
             _titleLabel = UILabel()
             _titleLabel?.font = Font(ofSize: 17,bold: true)
