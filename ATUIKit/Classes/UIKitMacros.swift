@@ -27,7 +27,7 @@ public var IS_IPHONE_X : Bool {
 }
 
 /// 导航栏高度
-public let NavagationBarHeight = IS_IPHONE_X ? 88.f : 64.f
+public let NavigationBarHeight = IS_IPHONE_X ? 88.f : 64.f
 
 /// 状态栏高度
 public let StatusBarHeight = IS_IPHONE_X ? 44.f : 20.f

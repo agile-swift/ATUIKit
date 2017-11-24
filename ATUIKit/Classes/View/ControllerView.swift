@@ -10,7 +10,10 @@ import UIKit
 
 class ControllerView: UIView {
 
-    public var navigationBar : NavigationBar {
+    public var navigationBar : NavigationBar? {
+        if (_navigationBar.superview == nil) {
+            return nil
+        }
         return _navigationBar
     }
     
@@ -20,31 +23,55 @@ class ControllerView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        setupView()
     }
     
     private let _navigationBar = NavigationBar()
     
     private func setupView() {
         self.backgroundColor = UIColor.white
+    }
+    
+    open func addNavigationBar() {
         addSubview(_navigationBar)
+    }
+    
+    open func removeNavigationBar() {
+        _navigationBar.removeFromSuperview()
     }
     
     override func insertSubview(_ view: UIView, at index: Int) {
         super.insertSubview(view, at: index)
-        self.bringSubview(toFront: navigationBar)
+        if self.navigationBar != nil {
+            self.bringSubview(toFront: _navigationBar)
+        }
+        fixTableView(view: view)
     }
 
     override func insertSubview(_ view: UIView, aboveSubview siblingSubview: UIView) {
         super.insertSubview(view, aboveSubview: siblingSubview)
-        self.bringSubview(toFront: navigationBar)
+        if self.navigationBar != nil {
+            self.bringSubview(toFront: _navigationBar)
+        }
+        fixTableView(view: view)
     }
     
     override func addSubview(_ view: UIView) {
-        if (view == navigationBar) {
+        if (self.navigationBar == nil) {
             super.addSubview(view)
         } else {
-            super.insertSubview(view, belowSubview: navigationBar)
+            super.insertSubview(view, belowSubview: _navigationBar)
+        }
+        fixTableView(view: view)
+    }
+    
+    private func fixTableView(view:UIView) {
+        if let tableView = view as? UITableView {
+            if #available(iOS 11.0, *) {
+                tableView.contentInsetAdjustmentBehavior = .never
+                tableView.scrollIndicatorInsets = tableView.contentInset
+            }
         }
     }
 }

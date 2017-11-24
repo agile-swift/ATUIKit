@@ -8,13 +8,15 @@
 
 import UIKit
 
-fileprivate let DefaultFrame = CGRect(x: 0, y: 0, width: ScreenWidth, height: NavagationBarHeight)
+fileprivate let DefaultFrame = CGRect(x: 0, y: 0, width: ScreenWidth, height: NavigationBarHeight)
 
 fileprivate var DefaultTitleFont = FitFont(ofSize: 17, bold: true)
 
 fileprivate var DefaultTitleColor = UIColor.black
 
-fileprivate var DefaultBottomLineColor : UIColor? = UIColor.lightGray
+fileprivate var DefaultBackgroundColor = UIColor.white
+
+fileprivate var DefaultBottomLineColor : UIColor = UIColor.lightGray
 
 fileprivate let NavigationTitleWidth = ScreenWidth * 0.5
 
@@ -52,12 +54,21 @@ open class NavigationBar: UIView {
         }
     }
     
-    open class var defaultBottomLineColor : UIColor? {
+    open class var defaultBottomLineColor : UIColor {
         set {
             DefaultBottomLineColor = newValue
         }
         get {
             return DefaultBottomLineColor
+        }
+    }
+    
+    open class var defaultBackgroundColor : UIColor {
+        set {
+            DefaultBackgroundColor = newValue
+        }
+        get {
+            return DefaultBackgroundColor
         }
     }
     
@@ -69,32 +80,36 @@ open class NavigationBar: UIView {
 
     // MARK: 标题
     
-    /// 字体颜色，设置标题之前有效
-    open var titleColor : UIColor?
+    /// 字体颜色
+    open var titleColor : UIColor? {
+        didSet {
+            updateTitle()
+        }
+    }
     
-    /// 字体，设置标题之前有效
-    open var titleFont : UIFont?
+    /// 字体
+    open var titleFont : UIFont? {
+        didSet {
+            updateTitle()
+        }
+    }
     
     /// 自定义标题
     open var titleView : UIView?
     
     
     /// 标题
-    open var title : String {
-        set {
-            let font = titleFont ?? DefaultTitleFont
-            let color = titleColor ?? DefaultTitleColor
-            attributedTitle = NSAttributedString.init(string: newValue, attributes: [NSAttributedStringKey.foregroundColor : color,NSAttributedStringKey.font : font])
+    open var title : String? {
+        didSet {
+            updateTitle()
         }
-        get {
-            return attributedTitle.string
-        }
-        
     }
 
     open var attributedTitle : NSAttributedString = NSAttributedString(){
         didSet {
             _titleLabel?.attributedText = attributedTitle
+            setNeedsLayout()
+            layoutIfNeeded()
         }
     }
     
@@ -169,15 +184,13 @@ open class NavigationBar: UIView {
     private func setupView() {
         
         addSubview(contentView)
-        contentView.backgroundColor = UIColor.white
+        self.backgroundColor = DefaultBackgroundColor
         if _titleLabel == nil {
             _titleLabel = UILabel()
             _titleLabel?.font = Font(ofSize: 17,bold: true)
             addSubview(_titleLabel!)
         }
-        if DefaultBottomLineColor != nil {
-            _bottomLine.backgroundColor = DefaultBottomLineColor
-        }
+        _bottomLine.backgroundColor = DefaultBottomLineColor
     }
     
     private func updateItems(_ removeItems : [UIView]) {
@@ -186,6 +199,12 @@ open class NavigationBar: UIView {
         }
         setNeedsLayout()
         layoutIfNeeded()
+    }
+    
+    private func updateTitle() {
+        let font = titleFont ?? DefaultTitleFont
+        let color = titleColor ?? DefaultTitleColor
+        attributedTitle = NSAttributedString.init(string: title ?? "", attributes: [NSAttributedStringKey.foregroundColor : color,NSAttributedStringKey.font : font])
     }
     
     // MARK: - 重写
