@@ -11,32 +11,6 @@ import Foundation
 
 open class NavigationController: UINavigationController {
     
-    
-    /// 获取当前导航控制器
-    open class var current : NavigationController? {
-        guard let window = UIApplication.shared.delegate?.window,
-        let rootVc = window?.rootViewController  else {
-            return nil
-        }
-        var currentViewController : UIViewController? = rootVc
-        if currentViewController is UITabBarController {
-            currentViewController = (currentViewController as! UITabBarController).selectedViewController
-        }
-        if currentViewController == nil {
-            return nil
-        }
-        while currentViewController?.presentedViewController != nil {
-            currentViewController = currentViewController?.presentedViewController
-        }
-        if currentViewController is NavigationController {
-            return currentViewController as? NavigationController
-        }
-        if currentViewController?.navigationController != nil {
-            return currentViewController?.navigationController as? NavigationController
-        }
-        return nil
-    }
-    
     fileprivate var currentViewController : UIViewController?
     
     public override init(rootViewController: UIViewController) {
@@ -60,6 +34,13 @@ open class NavigationController: UINavigationController {
         }
         return super.preferredStatusBarStyle
     }
+    
+    open override var prefersStatusBarHidden: Bool {
+        if topViewController != nil {
+            return topViewController!.prefersStatusBarHidden
+        }
+        return super.prefersStatusBarHidden
+    }
 }
 
 
@@ -77,5 +58,32 @@ extension NavigationController : UINavigationControllerDelegate {
         currentViewController = navigationController.viewControllers.count == 1 ? nil : viewController
     }
 
+}
+
+public extension UINavigationController {
+    /// 获取当前导航控制器
+    public class var current : UINavigationController? {
+        guard let window = UIApplication.shared.delegate?.window,
+                let rootVc = window?.rootViewController  else {
+                return nil
+        }
+        var currentViewController : UIViewController? = rootVc
+        if currentViewController is UITabBarController {
+            currentViewController = (currentViewController as! UITabBarController).selectedViewController
+        }
+        if currentViewController == nil {
+            return nil
+        }
+        while currentViewController?.presentedViewController != nil {
+            currentViewController = currentViewController?.presentedViewController
+        }
+        if currentViewController is UINavigationController {
+            return currentViewController as? UINavigationController
+        }
+        if currentViewController?.navigationController != nil {
+            return currentViewController?.navigationController as? UINavigationController
+        }
+        return nil
+    }
 }
 

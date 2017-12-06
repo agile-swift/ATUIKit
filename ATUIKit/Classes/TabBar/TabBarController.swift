@@ -75,8 +75,14 @@ open class TabBarController: UIViewController,TabBarDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
-        
+    }
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.selectedViewController.preferredStatusBarStyle
+    }
+    
+    open override var prefersStatusBarHidden: Bool {
+        return self.selectedViewController.prefersStatusBarHidden
     }
 
     public func tabBar(_ tabBar: TabBar, shouldSelectItemAt index: Int) -> Bool {

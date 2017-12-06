@@ -10,6 +10,7 @@ import UIKit
 
 open class TableViewCell: UITableViewCell {
     
+    public weak var tableView : UITableView?
     
     open class func cellWithTableView(_ tableView:UITableView, withReuseIdentifier identifier: String? = nil,bindData:Any?) -> TableViewCell {
         var identifier = identifier
@@ -19,13 +20,14 @@ open class TableViewCell: UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier!)
         if cell == nil {
             cell = self.init(style: .default, reuseIdentifier: identifier)
+            (cell as? TableViewCell)?.tableView = tableView
         }
         (cell as! TableViewCell).bindData(bindData)
         
         return cell as! TableViewCell
     }
     
-    open class func height(_ data:Any?) -> CGFloat {
+    open class func height(_ data:Any? = nil) -> CGFloat {
         return 44.fit6
     }
     

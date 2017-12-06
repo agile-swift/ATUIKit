@@ -37,8 +37,8 @@ open class ViewController: UIViewController {
         if #available(iOS 11.0, *) {
             
         } else {
-            automaticallyAdjustsScrollViewInsets = false
         }
+        automaticallyAdjustsScrollViewInsets = false
     }
 
     open override func loadView() {
@@ -62,7 +62,7 @@ open class ViewController: UIViewController {
     }
     
     open func removeNavigationBar() {
-        (view as! ControllerView).addNavigationBar()
+        (view as! ControllerView).removeNavigationBar()
     }
     
     open func addBackButtonWithImage(image : UIImage?) -> UIButton {
