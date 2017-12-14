@@ -95,7 +95,19 @@ open class NavigationBar: UIView {
     }
     
     /// 自定义标题
-    open var titleView : UIView?
+    open var titleView : UIView? {
+        willSet {
+            titleView?.removeFromSuperview()
+        }
+        didSet {
+            if titleView != nil {
+                contentView.addSubview(titleView!)
+                setNeedsLayout()
+                layoutIfNeeded()
+                _titleLabel?.isHidden = true
+            }
+        }
+    }
     
     
     /// 标题
@@ -107,6 +119,8 @@ open class NavigationBar: UIView {
 
     open var attributedTitle : NSAttributedString = NSAttributedString(){
         didSet {
+            _titleLabel?.isHidden = false
+            titleView = nil
             _titleLabel?.attributedText = attributedTitle
             setNeedsLayout()
             layoutIfNeeded()
@@ -249,6 +263,8 @@ open class NavigationBar: UIView {
         _titleLabel?.width = min(minValue * 2, titleNeedWidth)
         _titleLabel?.center = CGPoint.init(x: width * 0.5, y: centerY)
 
+        titleView?.center = _titleLabel?.center ?? CGPoint.zero
+        
         _bottomLine.frame = CGRect(x: 0, y: height - 1.pix, width: width, height: 1.pix)
     }
 }
