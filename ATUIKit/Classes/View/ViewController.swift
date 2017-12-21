@@ -30,6 +30,7 @@ open class ViewController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(UIView())
         addNavigationBar()
         if title != nil {
             navigationBar?.title = title!
