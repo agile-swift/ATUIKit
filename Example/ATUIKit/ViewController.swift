@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  ATUIKit
 //
-//  Created by makw@hui10.com on 09/11/2017.
-//  Copyright (c) 2017 makw@hui10.com. All rights reserved.
+//  Created by admin@makaiwen.com on 09/11/2017.
+//  Copyright (c) 2017 admin@makaiwen.com. All rights reserved.
 //
 
 import UIKit

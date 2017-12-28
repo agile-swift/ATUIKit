@@ -12,13 +12,6 @@ public enum ImageScaleOption {
     case none
     case circle
     case circleBorder(width:CGFloat,color:UIColor)
-    
-    func fff() -> Bool {
-//        if case circle == self {
-//            return true
-//        }
-        return false
-    }
 }
 
 extension UIImage : Background {
