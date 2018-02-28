@@ -96,6 +96,7 @@ open class TabBarController: UIViewController,TabBarDelegate {
         let vcView = self.childViewControllers[index].view
         self.view.insertSubview(vcView!, belowSubview: tabBar)
         _selectedIndex = index
+        setNeedsStatusBarAppearanceUpdate()
         delegate?.tabBarController?(self, didSelectItemAt: index)
     }
 }
