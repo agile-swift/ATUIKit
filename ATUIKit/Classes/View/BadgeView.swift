@@ -21,7 +21,7 @@ open class BadgeView: UILabel {
         }
     }
     
-    init(value:String?)
+    public init(value:String?)
     {
         self.value = value
         super.init(frame: CGRect.zero)

@@ -44,8 +44,8 @@ open class TabBarItem: UIControl {
     
     open var selectedIcon : UIImage { didSet { didSetSelectedIcon() } }
 
-    open var titleIconMargin : CGFloat  = 5.f { didSet {layoutIfNeeded()} }
-    
+    open var titleIconMargin : CGFloat  = 2.f { didSet {layoutIfNeeded()} }
+
     open var iconScale : CGFloat = 1 { didSet {layoutIfNeeded() } }
     
     open let badgeView = BadgeView(value:nil)
@@ -94,17 +94,17 @@ open class TabBarItem: UIControl {
         // 文字
         self.titleView.height = self.titleView.font.lineHeight
         self.titleView.width = self.width
-        self.titleView.bottom = self.height - 2.fit6
+        self.titleView.bottom = self.height - 2
         
         // 图标
         let image = self.imageView.image
         let size = image?.size ?? CGSize.zero
-        self.imageView.frame = CGRect.init(x: 0, y:0 , width: size.width.fit6 * iconScale, height: size.height.fit6 * iconScale)
-        self.imageView.centerX = self.width * 0.5.f
+        self.imageView.frame = CGRect.init(x: 0, y:0 , width: size.width * iconScale, height: size.height * iconScale)
+        self.imageView.centerX = self.width * 0.5
         self.imageView.bottom = self.titleView.top - titleIconMargin;
         
-        badgeView.baseCenter = CGPoint.init(x: imageView.right, y: imageView.top + 5.f)
-
+        badgeView.baseCenter = CGPoint.init(x: imageView.right, y: imageView.top + 5)
+        
     }
     
     open override var isSelected: Bool {
