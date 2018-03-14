@@ -143,6 +143,8 @@ open class NavigationBar: UIView {
         set {
             if newValue != nil {
                 leftItems = [newValue!]
+            } else {
+                leftItems = []
             }
         }
     }
@@ -154,6 +156,8 @@ open class NavigationBar: UIView {
         set {
             if newValue != nil {
                 rightItems = [newValue!]
+            } else {
+                rightItems = []
             }
         }
     }
