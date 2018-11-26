@@ -31,7 +31,7 @@ open class TableViewCell: UITableViewCell {
         return 44.fit6
     }
     
-    required public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.white
         setupView()

@@ -222,7 +222,7 @@ open class NavigationBar: UIView {
     private func updateTitle() {
         let font = titleFont ?? DefaultTitleFont
         let color = titleColor ?? DefaultTitleColor
-        attributedTitle = NSAttributedString.init(string: title ?? "", attributes: [NSAttributedStringKey.foregroundColor : color,NSAttributedStringKey.font : font])
+        attributedTitle = NSAttributedString.init(string: title ?? "", attributes: [NSAttributedString.Key.foregroundColor : color,NSAttributedString.Key.font : font])
     }
     
     // MARK: - 重写

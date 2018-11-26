@@ -24,7 +24,7 @@ open class TabBarController: UIViewController,TabBarDelegate {
         var items : [TabBarItem] = []
         for (_,vc) in _viewControllers.enumerated() {
             assert(vc.ATTabBarItem != nil, "请先为子控制器设置ATTabBar变量值")
-            self.addChildViewController(vc)
+            self.addChild(vc)
             let item = vc.ATTabBarItem!
             items.append(item)
         }
@@ -91,9 +91,9 @@ open class TabBarController: UIViewController,TabBarDelegate {
     
     public func tabBar(_ tabBar: TabBar, didSelectItemAt index: Int) {
         // 移除
-        self.childViewControllers[_selectedIndex].view.removeFromSuperview()
+        self.children[_selectedIndex].view.removeFromSuperview()
         // 添加
-        let vcView = self.childViewControllers[index].view
+        let vcView = self.children[index].view
         self.view.insertSubview(vcView!, belowSubview: tabBar)
         _selectedIndex = index
         setNeedsStatusBarAppearanceUpdate()

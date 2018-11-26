@@ -44,7 +44,7 @@ class ControllerView: UIView {
     override func insertSubview(_ view: UIView, at index: Int) {
         super.insertSubview(view, at: index)
         if self.navigationBar != nil {
-            self.bringSubview(toFront: _navigationBar)
+            self.bringSubviewToFront(_navigationBar)
         }
         fixTableView(view: view)
     }
@@ -52,7 +52,7 @@ class ControllerView: UIView {
     override func insertSubview(_ view: UIView, aboveSubview siblingSubview: UIView) {
         super.insertSubview(view, aboveSubview: siblingSubview)
         if self.navigationBar != nil {
-            self.bringSubview(toFront: _navigationBar)
+            self.bringSubviewToFront(_navigationBar)
         }
         fixTableView(view: view)
     }
